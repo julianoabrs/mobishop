@@ -1,0 +1,19 @@
+<div ng-controller="WindowMapCtrl">
+    <p style="font-size: 18px;font-weight: bold;">
+        <span style="">R$ {{valorSecao(parameter.basket.items, parameter.basket.freight.amount) | number : 2}}</span>
+        <span style="margin-left: 10px; font-size: 14px;font-weight: normal;">{{parameter.flow}}</span>
+        <span style="margin-left: 10px; font-size: 14px;font-weight: normal;" ng-show="parameter.tempo > 0">(há {{parameter.tempo | number : 0}} minutos)</span>
+        <span style="margin-left: 10px; font-size: 14px;font-weight: normal;" ng-show="parameter.tempo <= 0">(há menos de um minuto)</span>
+    </p>
+    <p>
+        <span style="">{{parameter.platform}}<span>
+    </p>
+    <p>
+        <span style="font-weight: bold;">{{parameter.user.name}} <span style="font-weight: normal;" ng-show="parameter.basket.freight">({{parameter.basket.freight.zipCode}})</span><span>
+    </p>
+    <p>
+        <div ng-repeat="item in parameter.basket.items">
+            {{item.quantity}} - {{item.name}}
+        </div>
+    </p>
+</div>
